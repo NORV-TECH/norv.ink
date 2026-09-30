@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Norv Inc.</title>
+<meta name="description" content="Norv Inc. makes Ruth, Platata and Mochi Moose.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2315171c'/%3E%3Cpath d='M18 46V18h6l16 18V18h6v28h-6L24 28v18z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Fredoka:wght@500;600&family=Manrope:wght@500;800&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #15171c;
+    --muted: #6b6f78;
+    --paper: #ffffff;
+    --ease: cubic-bezier(.2,.7,.2,1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Manrope", system-ui, sans-serif;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    flex: none;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding: clamp(18px, 3.2vh, 34px) clamp(20px, 4vw, 56px);
+  }
+  .wordmark {
+    font-weight: 800;
+    font-size: clamp(26px, 3.4vw, 44px);
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .wordmark span { color: var(--muted); font-weight: 500; }
+  .kicker {
+    font-size: clamp(13px, 1.1vw, 15px);
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  /* ---------- Products ---------- */
+  main {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    gap: clamp(8px, 1vw, 14px);
+    padding: 0 clamp(12px, 2vw, 28px) clamp(12px, 2vw, 28px);
+  }
+  .product {
+    position: relative;
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(22px, 3vw, 44px);
+    border-radius: clamp(18px, 2vw, 28px);
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--fg);
+    background: var(--bg);
+    transition: flex-grow .6s var(--ease);
+    isolation: isolate;
+  }
+  .product:hover, .product:focus-visible { flex-grow: 1.4; }
+  .product:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+  .name {
+    font-family: var(--font);
+    font-weight: var(--weight);
+    font-size: clamp(44px, 6.4vw, 104px);
+    line-height: .95;
+    letter-spacing: var(--track, -0.02em);
+  }
+  .line {
+    margin-top: clamp(10px, 1.4vh, 16px);
+    max-width: 30ch;
+    font-family: var(--font-body, var(--font));
+    font-size: clamp(15px, 1.25vw, 19px);
+    line-height: 1.4;
+    opacity: .82;
+  }
+  .go {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-body, var(--font));
+    font-size: clamp(14px, 1.1vw, 17px);
+    font-weight: 600;
+    padding: 10px 16px 10px 18px;
+    border-radius: 999px;
+    background: var(--chip-bg);
+    color: var(--chip-fg);
+    align-self: flex-start;
+  }
+  .go svg { width: 16px; height: 16px; transition: transform .35s var(--ease); }
+  .product:hover .go svg, .product:focus-visible .go svg { transform: translate(3px, -3px); }
+
+  .top { display: flex; align-items: flex-start; justify-content: space-between; }
+
+  /* Ruth */
+  .ruth {
+    --bg: radial-gradient(120% 90% at 100% 0%, #1f2c4d 0%, #121a2e 55%, #0e1526 100%);
+    --fg: #f4f1ea;
+    --font: "Newsreader", Georgia, serif;
+    --weight: 600;
+    --track: -0.025em;
+    --chip-bg: rgba(244,241,234,.1);
+    --chip-fg: #f4f1ea;
+  }
+  .ruth .name { font-size: clamp(56px, 8.2vw, 136px); }
+  .ruth::after {
+    content: "";
+    position: absolute; inset: auto -20% -40% auto;
+    width: 70%; aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid rgba(244,241,234,.08);
+    box-shadow: 0 0 0 40px rgba(244,241,234,.025), 0 0 0 90px rgba(244,241,234,.018);
+    z-index: -1;
+  }
+
+  /* Platata */
+  .platata {
+    --bg: #24140f;
+    --fg: #fbf2ea;
+    --font: "Fredoka", system-ui, sans-serif;
+    --weight: 600;
+    --chip-bg: #e2622f;
+    --chip-fg: #fff;
+  }
+  .platata::after {
+    content: "";
+    position: absolute; right: -28%; top: 18%;
+    width: 85%; aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, #5a2616 0%, #3a1a11 60%, transparent 71%);
+    z-index: -1;
+  }
+  .p-mark {
+    width: clamp(40px, 3.6vw, 52px); aspect-ratio: 1;
+    border-radius: 12px;
+    background: #e2622f;
+    color: #fff;
+    display: grid; place-items: center;
+    font-family: "Fredoka", sans-serif; font-weight: 600;
+    font-size: clamp(22px, 2vw, 30px);
+  }
+
+  /* Mochi Moose */
+  .mochi {
+    --bg: radial-gradient(90% 80% at 85% 20%, #ffe0ea 0%, #fff4ec 55%, #fff9ef 100%);
+    --fg: #4a2c26;
+    --font: "Baloo 2", system-ui, sans-serif;
+    --font-body: "Fredoka", system-ui, sans-serif;
+    --weight: 800;
+    --track: -0.01em;
+    --chip-bg: #ffd24a;
+    --chip-fg: #4a2c26;
+  }
+  .mochi .name em { font-style: normal; color: #f0679a; }
+  .moose {
+    width: clamp(64px, 7vw, 108px); aspect-ratio: 1;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 14px rgba(240,103,154,.22));
+  }
+  .bubble {
+    position: absolute; border-radius: 50%; z-index: -1;
+    background: radial-gradient(circle at 32% 30%, rgba(255,255,255,.9), var(--c) 70%);
+    opacity: .55;
+  }
+
+  footer {
+    flex: none;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    padding: 0 16px clamp(10px, 1.6vh, 18px);
+    margin-top: calc(-1 * clamp(4px, 1vh, 12px));
+  }
+
+  /* ---------- Page-load: one moment ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    .product { animation: rise .9s var(--ease) both; }
+    .product:nth-child(2) { animation-delay: .08s; }
+    .product:nth-child(3) { animation-delay: .16s; }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .product, .go svg { transition: none; }
+  }
+
+  /* ---------- Phone: stacked, still one screen ---------- */
+  @media (max-width: 760px) {
+    header { padding: 16px 16px 12px; }
+    .kicker { display: none; }
+    main { flex-direction: column; padding: 0 12px 12px; gap: 10px; }
+    .product {
+      flex-direction: row;
+      align-items: flex-end;
+      padding: 18px 18px;
+      border-radius: 20px;
+    }
+    .product:hover, .product:focus-visible { flex-grow: 1; }
+    .top { position: absolute; top: 16px; right: 16px; }
+    .name, .ruth .name { font-size: clamp(34px, 11vw, 52px); }
+    .line { font-size: 14px; margin-top: 6px; max-width: 26ch; }
+    .go { position: absolute; top: 16px; left: 18px; padding: 7px 12px 7px 13px; font-size: 13px; }
+    .p-mark { width: 38px; border-radius: 10px; font-size: 21px; }
+    .moose { width: 60px; }
+    footer { padding-bottom: 8px; margin-top: -2px; }
+  }
+  @media (max-width: 760px) and (max-height: 620px) {
+    .line { display: none; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="wordmark">Norv<span> Inc.</span></div>
+    <div class="kicker">Our products</div>
+  </header>
+
+  <main>
+    <a class="product ruth" href="https://ruth.team" target="_blank" rel="noopener">
+      <div class="top"></div>
+      <div>
+        <div class="name">Ruth</div>
+      </div>
+      <span class="go">ruth.team
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
+      </span>
+    </a>
+
+    <a class="product platata" href="https://platata.app" target="_blank" rel="noopener">
+      <div class="top"><div class="p-mark" aria-hidden="true">P</div></div>
+      <div>
+        <div class="name">Platata</div>
+        <p class="line">A point of sale for small businesses that runs on any Android phone or tablet.</p>
+      </div>
+      <span class="go">platata.app
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
+      </span>
+    </a>
+
+    <a class="product mochi" href="https://mochimoose.com" target="_blank" rel="noopener">
+      <span class="bubble" style="--c:#ffc3d6;width:22%;aspect-ratio:1;right:8%;bottom:20%"></span>
+      <span class="bubble" style="--c:#cfe4ff;width:9%;aspect-ratio:1;right:34%;top:14%"></span>
+      <span class="bubble" style="--c:#d9f2d4;width:13%;aspect-ratio:1;left:-3%;top:40%"></span>
+      <div class="top"><img class="moose" src="https://mochimoose.com/icon-192.png" alt=""></div>
+      <div>
+        <div class="name">Mochi <em>Moose</em></div>
+        <p class="line">A game studio making cozy, family-friendly games.</p>
+      </div>
+      <span class="go">mochimoose.com
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
+      </span>
+    </a>
+  </main>
+
+  <footer>© 2026 Norv Inc.</footer>
+</body>
+</html>
