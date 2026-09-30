@@ -135,28 +135,28 @@
     z-index: -1;
   }
 
-  /* Platata */
+  /* Platata: the bridge between Ruth's dark and Mochi's light */
   .platata {
-    --bg: #24140f;
-    --fg: #fbf2ea;
+    --bg: radial-gradient(120% 90% at 100% 0%, #ec8a5e 0%, #d9663a 50%, #bf5028 100%);
+    --fg: #fff8f2;
     --font: "Fredoka", system-ui, sans-serif;
     --weight: 600;
-    --chip-bg: #e2622f;
-    --chip-fg: #fff;
+    --chip-bg: #2a1712;
+    --chip-fg: #fff8f2;
   }
   .platata::after {
     content: "";
     position: absolute; right: -28%; top: 18%;
     width: 85%; aspect-ratio: 1;
     border-radius: 50%;
-    background: radial-gradient(circle, #5a2616 0%, #3a1a11 60%, transparent 71%);
+    background: radial-gradient(circle, rgba(255,236,220,.22) 0%, rgba(255,236,220,.08) 55%, transparent 71%);
     z-index: -1;
   }
   .p-mark {
     width: clamp(40px, 3.6vw, 52px); aspect-ratio: 1;
     border-radius: 12px;
-    background: #e2622f;
-    color: #fff;
+    background: #fff8f2;
+    color: #d9663a;
     display: grid; place-items: center;
     font-family: "Fredoka", sans-serif; font-weight: 600;
     font-size: clamp(22px, 2vw, 30px);
@@ -164,7 +164,7 @@
 
   /* Mochi Moose */
   .mochi {
-    --bg: radial-gradient(90% 80% at 85% 20%, #ffe0ea 0%, #fff4ec 55%, #fff9ef 100%);
+    --bg: radial-gradient(90% 80% at 85% 20%, #f7c9d6 0%, #f6dccd 55%, #f3dfc8 100%);
     --fg: #4a2c26;
     --font: "Baloo 2", system-ui, sans-serif;
     --font-body: "Fredoka", system-ui, sans-serif;
